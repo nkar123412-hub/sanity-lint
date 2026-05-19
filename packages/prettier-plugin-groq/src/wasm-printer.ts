@@ -9,9 +9,11 @@
 import { format as wasmFormat } from '@sanity-labs/groq-wasm'
 import type { Printer } from 'prettier'
 
-export const groqPrinter: Printer<unknown> = {
-  print(_path, options) {
-    const source = options.originalText ?? ''
+import type { GroqAst } from './parser.js'
+
+export const groqPrinter: Printer<GroqAst> = {
+  print(path, options) {
+    const source = path.node.text ?? options.originalText ?? ''
     const width = options.printWidth || 80
     return wasmFormat(source, { width })
   },

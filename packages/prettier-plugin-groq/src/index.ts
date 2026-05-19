@@ -16,7 +16,7 @@ const parsers: Record<string, Parser<GroqAst>> = {
   groq: groqParser,
 }
 
-const printers: Record<string, Printer<unknown>> = {
+const printers: Record<string, Printer<GroqAst>> = {
   'groq-ast': groqPrinter,
 }
 
