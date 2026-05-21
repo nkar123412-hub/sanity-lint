@@ -23,6 +23,26 @@ async function format(code: string, options: prettier.Options = {}): Promise<str
 }
 
 describe('prettier-plugin-groq', () => {
+  describe('trailing newline', () => {
+    it('appends a trailing newline when missing', async () => {
+      const result = await prettier.format('*[_type=="post"]{title}', {
+        parser: 'groq',
+        plugins: [plugin],
+      })
+      expect(result.endsWith('\n')).toBe(true)
+      expect(result.endsWith('\n\n')).toBe(false)
+    })
+
+    it('does not double the trailing newline if already present', async () => {
+      const result = await prettier.format('*[_type=="post"]{title}\n', {
+        parser: 'groq',
+        plugins: [plugin],
+      })
+      expect(result.endsWith('\n')).toBe(true)
+      expect(result.endsWith('\n\n')).toBe(false)
+    })
+  })
+
   describe('basic expressions', () => {
     it('formats everything (*)', async () => {
       expect(await format('*')).toBe('*')
