@@ -1,5 +1,11 @@
 # @sanity/prettier-plugin-groq
 
+## 1.0.1
+
+### Patch Changes
+
+- 042b456: Append a trailing newline to formatted GROQ output.
+
 ## 1.0.0
 
 ### Major Changes
