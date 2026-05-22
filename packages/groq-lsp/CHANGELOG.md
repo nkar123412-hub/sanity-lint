@@ -1,5 +1,12 @@
 # @sanity/groq-lsp
 
+## 1.0.1
+
+### Patch Changes
+
+- Updated dependencies [042b456]
+  - @sanity-labs/prettier-plugin-groq@1.0.1
+
 ## 1.0.0
 
 ### Major Changes
